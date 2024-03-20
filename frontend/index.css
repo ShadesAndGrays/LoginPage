@@ -1,0 +1,74 @@
+body{
+    background-color: rgb(10,10,15);
+}
+.holder{
+    margin:auto;
+    padding:0px;
+    width: 200px;
+
+}
+input{
+    background: rgb(20, 30, 30);
+    color:wheat;
+    border-style: none;
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    margin-top: 10px;
+    padding-left: 5px;
+}
+
+input:focus{
+    background:rgb(30,40, 40);
+    outline:solid;
+}
+
+input::placeholder{
+    color:wheat;
+    color:rgb(90,120, 120);
+}
+
+
+.inputs{
+    display: flexbox;
+
+}
+
+button{
+    background: rgb(20, 30, 30);
+    color:rgb(90,120, 120);
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2px;
+    padding: 5px 2px;
+    border-radius: 4px;
+    font-size: 16px;
+    outline:none;
+    width: 80px;
+}
+button:hover{
+    background: rgb(70, 30, 30);
+    cursor: pointer;
+}
+
+button:focus{
+    background: rgb(70, 30, 30);
+    outline:solid;
+    outline-color: wheat;
+    color:wheat;
+
+}
+button:active{
+    background: rgb(50, 50, 70);
+    outline:solid;
+    outline-color: wheat;
+}
+
+.buttons{
+    align-items: center;
+    display: flex;
+}
