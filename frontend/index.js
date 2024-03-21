@@ -1,4 +1,3 @@
-// You can tell I am not used to javascipt
 let username = ""
 let password = ""
 
@@ -7,39 +6,45 @@ function getInfo(){
     password = document.getElementById("password").value;
 }
 
+loginBtn = document.getElementById("login")
+loginBtn.addEventListener("click",() => {
+    login()
+})
+
+
 async function login(){
     getInfo()
 
     if (username === ""){
-        console.log("Username is empty")
+        alert("Username is empty")
         return
     }
     if(password === ""){
-        console.log("Password is empty")
+        alert("Password is empty")
         return
     }
+    try{
     let value = await fetch(`http://localhost:8000/user/${username}`);
     let jsonValue = await value.json();
     if (jsonValue.length === 0){
-        console.log("Empty")
         return
     }
-    else{
-        console.log(jsonValue.length)
-        console.log(username)
-    }
-
 
     if (password === jsonValue.password){
-        console.log("You have Login in")
+        alert("Login was successful")
     }
     else{
-        console.log("Incorrect Password")
+        alert("Failed to Login")
+    }}catch(error){
+        console.error("Error: ",error)
+        alert("An error occured during login")
+
     }
 }
 async function signup(){
     getInfo()
     // Copy pasted code I would be lying if I said Iknew 
+    try{
     fetch("http://localhost:8000/user", {
         method: "POST",
         body: JSON.stringify({
@@ -52,4 +57,9 @@ async function signup(){
     })
         .then((response) => response.json())
         .then((json) => console.log(json));
+    }catch(error) {
+        console.error("Error: ",error)
+        alert("An error occured during sign up")
+
+    }
 }
